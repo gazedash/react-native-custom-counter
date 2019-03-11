@@ -1,18 +1,18 @@
 import Foundation
 import MediaPlayer
 
-@objc(CounterViewManager)
-class CounterViewManager: RCTViewManager {
+@objc(RNAirViewManager)
+class RNAirViewManager: RCTViewManager {
   override func view() -> UIView! {
-    return CounterView()
+    return RNAirView()
   }
   
   @objc func updateFromManager(_ node: NSNumber, count: NSNumber) {
     DispatchQueue.main.async {
       let component = self.bridge.uiManager.view(
         forReactTag: node
-      ) as! CounterView
-      component.update(value: count)
+      ) as! RNAirView
+      component.showMenu()
     }
   }
 }

@@ -1,7 +1,7 @@
 import UIKit
 import MediaPlayer
 
-class CounterView: UIView {
+class RNAirView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
@@ -10,7 +10,7 @@ class CounterView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  @objc func update(value: NSNumber) {
+  @objc func showMenu() {
     let rect = CGRect(x: 10, y: 10, width: 100, height: 100) 
     let airplayVolume = MPVolumeView(frame: rect)
     airplayVolume.showsVolumeSlider = true
