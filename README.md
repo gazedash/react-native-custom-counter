@@ -1,6 +1,18 @@
-# React Native Custom Modules & Components
+# This library provides method to show AirPlay menu
 
-This is a demo on how to bridge Native modules and components to React Native. The repo includes:
+## Usage
 
-* a Swift Module
-* a Swift UI Component
+```js
+<>
+    <TouchableOpacity
+        style={[styles.wrapper, styles.border]}
+        onPress={() => this.menuRef && this.menuRef.showMenu()}
+    >
+        <Text style={styles.button}>Listen in AirPods</Text>
+    </TouchableOpacity>
+
+    <AirPlay
+        ref={e => (this.menuRef = e)}
+    />
+</>
+```
