@@ -6,31 +6,21 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import CounterView from './CounterView'
+import AirPlay from './lib/AirPlay'
 
 export default class App extends Component {
-  state = {
-    count: 1
-  };
-
-  updateNative = () => {
-    this.counterRef.update(this.state.count);
-  };
-
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity
           style={[styles.wrapper, styles.border]}
-          onLongPress={this.updateNative}
+          onPress={() => this.menuRef && this.menuRef.showMenu()}
         >
-          <Text style={styles.button}>{this.state.count}</Text>
+          <Text style={styles.button}>Listen in AirPods</Text>
         </TouchableOpacity>
 
-        <CounterView
-          style={styles.wrapper}
-          count={2}
-          ref={e => (this.counterRef = e)}
+        <AirPlay
+          ref={e => (this.menuRef = e)}
         />
       </View>
     );
