@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class CounterView: UIView {
 
@@ -45,6 +46,19 @@ class CounterView: UIView {
   }()
 
   @objc func increment() {
+
+    // let rect = CGRect(x: 10, y: 10, width: 100, height: 100) 
+    // let airplayVolume = MPVolumeView(frame: rect)
+    // airplayVolume.showsVolumeSlider = true
+    // airplayVolume.showsRouteButton = true
+    // self.addSubview(airplayVolume)
+    // for view: UIView in airplayVolume.subviews {
+    //     if let button = view as? UIButton {
+    //         button.sendActions(for: .touchUpInside)
+    //         break
+    //     }
+    // }
+
     count = count.intValue + 1 as NSNumber
   }
   
@@ -58,6 +72,20 @@ class CounterView: UIView {
   }
   
   @objc func update(value: NSNumber) {
+    print("was i called")
+
+    let rect = CGRect(x: 10, y: 10, width: 100, height: 100) 
+    let airplayVolume = MPVolumeView(frame: rect)
+    airplayVolume.showsVolumeSlider = true
+    airplayVolume.showsRouteButton = true
+    self.addSubview(airplayVolume)
+    for view: UIView in airplayVolume.subviews {
+        if let button = view as? UIButton {
+            button.sendActions(for: .touchUpInside)
+            break
+        }
+    }
+
     count = value
   }
 

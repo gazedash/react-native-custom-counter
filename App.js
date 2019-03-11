@@ -1,12 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
@@ -15,25 +8,9 @@ import {
 
 import CounterView from './CounterView'
 
-import Counter from "./Counter"
-Counter.addListener("onIncrement", res => {
-  console.log("event onIncrement", res)
-})
-Counter.increment()
-Counter.decrement()
-Counter.decrement()
-
 export default class App extends Component {
   state = {
     count: 1
-  };
-
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  update = e => {
-    this.setState({ count: e.count })
   };
 
   updateNative = () => {
@@ -45,7 +22,6 @@ export default class App extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={[styles.wrapper, styles.border]}
-          onPress={this.increment}
           onLongPress={this.updateNative}
         >
           <Text style={styles.button}>{this.state.count}</Text>
@@ -54,7 +30,6 @@ export default class App extends Component {
         <CounterView
           style={styles.wrapper}
           count={2}
-          onUpdate={this.update}
           ref={e => (this.counterRef = e)}
         />
       </View>
